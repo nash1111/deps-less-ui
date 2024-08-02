@@ -1,14 +1,15 @@
 import React from 'react';
 
-interface CardProps {
+interface BlogCardProps {
   title: string;
   content: string;
   imageUrl?: string;
+  size?: 'small' | 'medium' | 'large';
 }
 
-export const Card: React.FC<CardProps> = ({ title, content, imageUrl }) => {
+export const BlogCard: React.FC<BlogCardProps> = ({ title, content, imageUrl, size = 'medium' }) => {
   return (
-    <div className="card">
+    <div>
       {imageUrl && <img src={imageUrl} alt={title} className="card-image" />}
       <div className="card-body">
         <h2 className="card-title">{title}</h2>
@@ -18,4 +19,4 @@ export const Card: React.FC<CardProps> = ({ title, content, imageUrl }) => {
   );
 };
 
-export default Card;
+export default BlogCard;
