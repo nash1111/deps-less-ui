@@ -19,14 +19,22 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     title: 'Card Title',
-    content: 'This is the card content',
+    description: 'This is the card content',
   },
 };
 
 export const WithImage: Story = {
   args: {
     title: 'Card Title',
-    content: 'This is the card content',
+    description: 'This is the card content',
     imageUrl: 'https://picsum.photos/id/237/200/300',
+  },
+};
+
+export const WithTags: Story = {
+  args: {
+    title: 'Card Title',
+    description: 'This is the card content',
+    tags: ['tag1', 'tag2', 'tag3'],
   },
 };

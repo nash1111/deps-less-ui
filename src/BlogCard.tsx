@@ -2,8 +2,9 @@ import React from 'react';
 
 interface BlogCardProps {
   title: string;
-  content: string;
+  description?: string;
   imageUrl?: string;
+  tags?: string[];
 }
 
 const styles = {
@@ -29,15 +30,42 @@ const styles = {
     fontSize: '1rem',
     color: '#666',
   },
-};
+  tags: {
+    display: 'flex',
+    flexWrap: 'wrap',
+    gap: '8px',
+    marginTop: '12px',
+  },
+  tag: {
+    backgroundColor: '#f0f0f0',
+    borderRadius: '4px',
+    padding: '4px 8px',
+    fontSize: '0.875rem',
+    color: '#333',
+  },
+} as const;
 
-export const BlogCard: React.FC<BlogCardProps> = ({ title, content, imageUrl }) => {
+export const BlogCard: React.FC<BlogCardProps> = ({ title, description: content, imageUrl, tags }) => {
   return (
-    <div style={styles.card}>
+    <div style={{
+      ...styles.card,
+      width: '320px',
+      minHeight: '360px',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'space-between',
+    }}>
       {imageUrl && <img src={imageUrl} alt={title} style={styles.cardImage} />}
       <div style={styles.cardBody}>
         <h2 style={styles.cardTitle}>{title}</h2>
         <p style={styles.cardContent}>{content}</p>
+        {tags && tags.length > 0 && (
+          <div style={styles.tags}>
+            {tags.map((tag, index) => (
+              <span key={index} style={styles.tag}>{tag}</span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
