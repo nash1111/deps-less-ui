@@ -38,3 +38,20 @@ export const WithTags: Story = {
     tags: ['tag1', 'tag2', 'tag3'],
   },
 };
+
+export const WithTagsAndImage: Story = {
+  args: {
+    title: 'Card Title',
+    description: 'This is the card content',
+    tags: ['tag1', 'tag2', 'tag3'],
+    imageUrl: 'https://picsum.photos/id/237/200/300',
+  },
+};
+
+export const WithPublishedDate: Story = {
+  args: {
+    title: 'Card Title',
+    description: 'This is the card content',
+    publishedDate: '2021-01-01',
+  },
+};

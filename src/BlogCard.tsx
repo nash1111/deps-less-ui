@@ -3,6 +3,7 @@ import React from 'react';
 interface BlogCardProps {
   title: string;
   description?: string;
+  publishedDate?: string;
   imageUrl?: string;
   tags?: string[];
 }
@@ -45,7 +46,7 @@ const styles = {
   },
 } as const;
 
-export const BlogCard: React.FC<BlogCardProps> = ({ title, description: content, imageUrl, tags }) => {
+export const BlogCard: React.FC<BlogCardProps> = ({ title, description: content, publishedDate, imageUrl, tags }) => {
   return (
     <div style={{
       ...styles.card,
@@ -59,6 +60,11 @@ export const BlogCard: React.FC<BlogCardProps> = ({ title, description: content,
       <div style={styles.cardBody}>
         <h2 style={styles.cardTitle}>{title}</h2>
         <p style={styles.cardContent}>{content}</p>
+        {publishedDate && (
+          <p style={{ ...styles.cardContent, marginTop: '8px', fontSize: '0.875rem' }}>
+            Published: {publishedDate}
+          </p>
+        )}
         {tags && tags.length > 0 && (
           <div style={styles.tags}>
             {tags.map((tag, index) => (
