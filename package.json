@@ -36,5 +36,9 @@
     "storybook": "^8.2.6",
     "typescript": "^5.2.2",
     "vite": "^5.3.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nash1111/deps-less-ui.git"
   }
 }
