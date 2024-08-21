@@ -5,8 +5,6 @@ on:
       - master
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
   check-publishable:
     timeout-minutes: 3
     runs-on: ubuntu-latest
