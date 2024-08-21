@@ -1,0 +1,44 @@
+name: Publish NPM
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+  check-publishable:
+    timeout-minutes: 3
+    runs-on: ubuntu-latest
+    outputs:
+      publishable: ${{ steps.publishable.outputs.result }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check if publishable
+        id: publishable
+        run: |
+          npx can-npm-publish && echo "result=true" >> $GITHUB_OUTPUT || echo "result=false" >> $GITHUB_OUTPUT
+
+  deploy:
+    timeout-minutes: 5
+    needs: [check-publishable]
+    if: needs.check-publishable.outputs.publishable == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+          run_install: true
+
+      - name: Build
+        run: pnpm build
+
+      - name: Release
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
