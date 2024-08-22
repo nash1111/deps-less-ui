@@ -1,6 +1,6 @@
 {
   "name": "deps-less-ui",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "main": "./dist/src/index.js",
   "types": "./dist/src/index.d.ts",
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b",
+    "build": "tsc --project tsconfig.app.json",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
