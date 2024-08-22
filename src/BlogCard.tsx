@@ -93,5 +93,3 @@ export const BlogCard: React.FC<BlogCardProps> = ({ title, description, publishe
     </div>
   );
 };
-
-export default BlogCard;
