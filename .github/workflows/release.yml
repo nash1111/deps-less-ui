@@ -41,7 +41,7 @@ jobs:
           run_install: true
 
       - name: Build
-        run: pnpm build
+        run: pnpm tsup
 
       - name: Release
         run: npm publish --provenance --access public
