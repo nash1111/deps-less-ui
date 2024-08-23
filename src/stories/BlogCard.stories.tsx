@@ -19,14 +19,12 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     title: 'Card Title',
-    url: 'https://example.com',
   },
 };
 
 export const WithImage: Story = {
   args: {
     title: 'Card Title',
-    url: 'https://example.com',
     description: 'This is the card content',
     imageUrl: 'https://picsum.photos/id/237/200/300',
   },
@@ -35,7 +33,6 @@ export const WithImage: Story = {
 export const WithTags: Story = {
   args: {
     title: 'Card Title',
-    url: 'https://example.com',
     description: 'This is the card content',
     tags: ['tag1', 'tag2', 'tag3'],
   },
@@ -44,7 +41,6 @@ export const WithTags: Story = {
 export const WithTagsAndImage: Story = {
   args: {
     title: 'Card Title',
-    url: 'https://example.com',
     description: 'This is the card content',
     tags: ['tag1', 'tag2', 'tag3'],
     imageUrl: 'https://picsum.photos/id/237/200/300',
@@ -54,7 +50,6 @@ export const WithTagsAndImage: Story = {
 export const WithTagsAndWideImage: Story = {
   args: {
     title: 'Card Title',
-    url: 'https://example.com',
     description: 'This is the card content',
     tags: ['tag1', 'tag2', 'tag3'],
     imageUrl: 'https://picsum.photos/id/237/400/300',
@@ -64,7 +59,6 @@ export const WithTagsAndWideImage: Story = {
 export const WithPublishedDate: Story = {
   args: {
     title: 'Card Title',
-    url: 'https://example.com',
     description: 'This is the card content',
     publishedDate: '2021-01-01',
   },

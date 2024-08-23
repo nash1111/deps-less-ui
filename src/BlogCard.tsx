@@ -2,7 +2,6 @@ import React from 'react';
 
 interface BlogCardProps {
   title: string;
-  url: string;
   description?: string;
   publishedDate?: string;
   imageUrl?: string;
@@ -63,7 +62,7 @@ const styles = {
   },
 } as const;
 
-export const BlogCard: React.FC<BlogCardProps> = ({ title, url, description, publishedDate, imageUrl, tags }) => {
+export const BlogCard: React.FC<BlogCardProps> = ({ title, description, publishedDate, imageUrl, tags }) => {
   return (
     <div style={styles.card}>
       <div style={styles.imageContainer}>
@@ -75,9 +74,6 @@ export const BlogCard: React.FC<BlogCardProps> = ({ title, url, description, pub
       </div>
       <div style={styles.cardBody}>
       <h2 style={styles.cardTitle}>
-          <a href={url} style={{ textDecoration: 'none', color: 'inherit' }}>
-            {title}
-          </a>
         </h2>
         <div style={styles.cardContent}>
           {description && <p>{description}</p>}
