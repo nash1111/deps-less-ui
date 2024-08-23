@@ -73,7 +73,8 @@ export const BlogCard: React.FC<BlogCardProps> = ({ title, description, publishe
         )}
       </div>
       <div style={styles.cardBody}>
-      <h2 style={styles.cardTitle}>
+        <h2 style={styles.cardTitle}>
+          {title}
         </h2>
         <div style={styles.cardContent}>
           {description && <p>{description}</p>}
