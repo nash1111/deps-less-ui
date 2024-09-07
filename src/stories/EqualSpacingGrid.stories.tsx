@@ -1,9 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { SimpleGrid } from '../SimpleGrid';
+import { EqualSpacingGrid } from '../EqualSpacingGrid';
+import React from 'react';
 
 const meta = {
-  title: 'Layout/SimpleGrid',
-  component: SimpleGrid,
+  title: 'Layout/EqualSpacingGrid',
+  component: EqualSpacingGrid,
   parameters: {
     layout: 'centered',
   },
@@ -11,10 +12,8 @@ const meta = {
   argTypes: {
     columns: { control: 'number' },
     spacing: { control: 'number' },
-    rowSpacing: { control: 'number' },
-    columnSpacing: { control: 'number' },
   },
-} satisfies Meta<typeof SimpleGrid>;
+} satisfies Meta<typeof EqualSpacingGrid>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -30,14 +29,15 @@ export const Default: Story = {
     columns: 3,
     spacing: 2,
     children: (
-      <SimpleGrid>
-        <div>Item 1</div>
-        <div>Item 2</div>
-        <div>Item 3</div>
-        <div>Item 4</div>
-        <div>Item 5</div>
-        <div>Item 6</div>
-      </SimpleGrid>
+      <EqualSpacingGrid>
+        <GridItem>Item 1</GridItem>
+        <GridItem>Item 2</GridItem>
+        <GridItem>Item 3</GridItem>
+        <GridItem>Item 4</GridItem>
+        <GridItem>Item 5</GridItem>
+        <GridItem>Item 6</GridItem>
+        <GridItem>Item 7</GridItem>
+      </EqualSpacingGrid>
     ),
   },
 };
@@ -52,8 +52,6 @@ export const FourColumns: Story = {
 export const WithDifferentSpacing: Story = {
   args: {
     ...Default.args,
-    rowSpacing: 4,
-    columnSpacing: 2,
   },
 };
 
