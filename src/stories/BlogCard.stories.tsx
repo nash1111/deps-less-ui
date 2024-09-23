@@ -56,6 +56,16 @@ export const WithTagsAndWideImage: Story = {
   },
 };
 
+export const WithTagsAndWideImageAndColor: Story = {
+  args: {
+    title: 'Card Title',
+    description: 'This is the card content',
+    tags: ['tag1', 'tag2', 'tag3'],
+    imageUrl: 'https://picsum.photos/id/237/400/300',
+    color: '#f0f0f0',
+  },
+};
+
 export const WithPublishedDate: Story = {
   args: {
     title: 'Card Title',

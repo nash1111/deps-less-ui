@@ -6,6 +6,7 @@ interface BlogCardProps {
   publishedDate?: string;
   imageUrl?: string;
   tags?: string[];
+  color?: string;
 }
 
 const styles = {
@@ -62,9 +63,9 @@ const styles = {
   },
 } as const;
 
-export const BlogCard: React.FC<BlogCardProps> = ({ title, description, publishedDate, imageUrl, tags }) => {
+export const BlogCard: React.FC<BlogCardProps> = ({ title, description, publishedDate, imageUrl, tags, color }) => {
   return (
-    <div style={styles.card}>
+    <div style={{ ...styles.card, backgroundColor: color || 'white' }}>
       <div style={styles.imageContainer}>
         {imageUrl ? (
           <img src={imageUrl} alt={title} style={styles.cardImage} />
