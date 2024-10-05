@@ -26,19 +26,16 @@ const GridItem = ({ children }: { children: React.ReactNode }) => (
 
 export const Default: Story = {
   args: {
-    columns: 3,
     spacing: 2,
-    children: (
-      <EqualSpacingGrid>
-        <GridItem>Item 1</GridItem>
-        <GridItem>Item 2</GridItem>
-        <GridItem>Item 3</GridItem>
-        <GridItem>Item 4</GridItem>
-        <GridItem>Item 5</GridItem>
-        <GridItem>Item 6</GridItem>
-        <GridItem>Item 7</GridItem>
-      </EqualSpacingGrid>
-    ),
+    children: [
+        <GridItem>Item 1</GridItem>,
+        <GridItem>Item 2</GridItem>,
+        <GridItem>Item 3</GridItem>,
+        <GridItem>Item 4</GridItem>,
+        <GridItem>Item 5</GridItem>,
+        <GridItem>Item 6</GridItem>,
+        <GridItem>Item 7</GridItem>,
+    ],
   },
 };
 
