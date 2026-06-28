@@ -11,20 +11,20 @@ interface BlogCardProps {
 
 const styles = {
   card: {
-    border: '1px solid #ddd',
+    border: '1px solid #e5e7eb',
     borderRadius: '8px',
     overflow: 'hidden',
     margin: '16px',
-    boxShadow: '0 4px 8px rgba(0,0,0,0.1)',
-    width: '320px',
+    boxShadow: '0 10px 24px rgba(15, 23, 42, 0.08)',
+    width: '336px',
     display: 'flex',
     flexDirection: 'column',
-    height: '360px',
+    height: '380px',
   },
   imageContainer: {
-    height: '200px',
+    height: '188px',
     overflow: 'hidden',
-    backgroundColor: '#e0e0e0',
+    background: 'linear-gradient(135deg, #f3f4f6 0%, #dbeafe 100%)',
   },
   cardImage: {
     width: '100%',
@@ -33,20 +33,33 @@ const styles = {
     display: 'block',
   },
   cardBody: {
-    padding: '16px',
+    padding: '18px',
     display: 'flex',
     flexDirection: 'column',
-    height: '200px',
+    flex: 1,
+    minHeight: 0,
   },
   cardTitle: {
-    fontSize: '1.5rem',
+    color: '#111827',
+    fontSize: '1.25rem',
+    lineHeight: 1.25,
+    margin: 0,
     marginBottom: '8px',
   },
   cardContent: {
-    fontSize: '1rem',
-    color: '#666',
+    fontSize: '0.95rem',
+    lineHeight: 1.5,
+    color: '#4b5563',
     overflow: 'auto',
     flex: 1,
+  },
+  description: {
+    margin: 0,
+  },
+  publishedDate: {
+    color: '#6b7280',
+    fontSize: '0.8125rem',
+    margin: '10px 0 0',
   },
   tags: {
     display: 'flex',
@@ -55,11 +68,12 @@ const styles = {
     marginTop: '12px',
   },
   tag: {
-    backgroundColor: '#f0f0f0',
+    backgroundColor: '#eef2ff',
+    border: '1px solid #c7d2fe',
     borderRadius: '4px',
     padding: '4px 8px',
-    fontSize: '0.875rem',
-    color: '#333',
+    fontSize: '0.8125rem',
+    color: '#3730a3',
   },
 } as const;
 
@@ -78,9 +92,9 @@ export const BlogCard: React.FC<BlogCardProps> = ({ title, description, publishe
           {title}
         </h2>
         <div style={styles.cardContent}>
-          {description && <p>{description}</p>}
+          {description && <p style={styles.description}>{description}</p>}
           {publishedDate && (
-            <p style={{ marginTop: '8px', fontSize: '0.875rem' }}>
+            <p style={styles.publishedDate}>
               Published: {publishedDate}
             </p>
           )}
